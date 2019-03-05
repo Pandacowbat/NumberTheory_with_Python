@@ -22,6 +22,22 @@ def checktriangular(num):
         return True
     else:
         return False
+def triangular_number(n):
+    result=(n*(n+1))/2
+    return int(result)
+def checkprime(n):
+    #using a normal method, checking whether there are any factors until the root of n
+    result=True
+    if (n<2):
+        return False
+    elif (n==2):
+        return True
+    for i in range(2,int(math.sqrt(n))):
+        if(n%i==0):
+            result=False
+            break
+    return result
+
 def chapter1():
     print("What can I help you with?\n")
     while True:
@@ -37,7 +53,18 @@ def chapter1():
                 print("The number you entered is triangular!")
             else:
                 print("The number you entered isn't triangular.")
+        elif (option_selected=='2'):
+            n=int(input("Enter the value of n."))
+            x=triangular_number(n)
+            print("The nth triangular number is " + str(x))
+        elif (option_selected=='3'):
+            num=int(input("What number would you like to check?"))
+            x=checkprime(num)
+            if(x==True):
+                print("The given number is a prime!")
+            else:
+                print("The given number is not a prime.") 
         else:
-            print("Not getting 1")
+            print("Invalid input.")
         break
 chapter1()
